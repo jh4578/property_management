@@ -163,7 +163,7 @@ def app():
             st.write("单元:")
             st.session_state['include_unit'] = True
         else:
-            Query to include only Building
+            #Query to include only Building
             search_query += """ Building.building_name AS 公寓名称,
                                 Building.op AS OP,
                                 Building.location AS 区域,
