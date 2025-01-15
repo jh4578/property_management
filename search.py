@@ -140,17 +140,19 @@ def app():
         elif include_unit:
             # Query to include Unit and Building
             search_query += """ Building.building_name AS 公寓名称,
-                                Unit.*,
+                                Unit.unit_number AS 单元号,
+                                Unit.rent_price AS 租金,
+                                Unit.floorplan AS 户型,
+                                Unit.floorplan_image AS 户型图,
+                                Unit.unit_video AS 单元视频,
+                                Unit.available_date AS Availability,
+                                Unit.washer_dryer AS 室内洗烘,  
+                                Unit.size AS 面积sqft,
+                                Unit.concession AS 优惠政策,
+                                Unit.direction AS 朝向,
                                 Building.location AS 区域,
-                                Building.building_description AS 公寓描述,
-                                Building.building_location_image AS 公寓位置图片,
-                                Building.pet AS 宠物友好,
-                                Building.application_material AS 申请材料,
-                                Building.washer_dryer_image AS 公用洗烘设施图片,
-                                Building.amenity_image AS 设施图片,
-                                Building.gurantee_policy AS 担保政策,
-                                Building.source AS 来源,
-                                Building.website AS 公寓网站 FROM Unit """
+                                Unit.latest_update
+                                FROM Unit """
             join_conditions += "JOIN Building ON Unit.building_id = Building.building_id "
             if movein_date and if_time:
                 search_conditions.append(f"Unit.available_date <= '{movein_date}' AND Unit.movein_before >= '{movein_date}'")
@@ -161,23 +163,17 @@ def app():
             st.write("单元:")
             st.session_state['include_unit'] = True
         else:
-            # Query to include only Building
-            # search_query += """ Building.building_name AS 公寓名称,
-            #                     Building.op AS OP,
-            #                     Building.location AS 区域,
-            #                     Building.address AS 地址,
-            #                     Building.building_description AS 公寓描述,
-            #                     Building.building_location_image AS 公寓位置图片,
-            #                     Building.pet AS 宠物友好,
-            #                     Building.application_material AS 申请材料,
-            #                     Building.washer_dryer_image AS 公用洗烘设施图片,
-            #                     Building.amenity_image AS 设施图片,
-            #                     Building.guarantee_policy AS 担保政策,
-            #                     Building.source AS 来源,
-            #                     Building.website AS 公寓网站,
-            #                     Building.movein_range,
-            #                     Building.building_id FROM Building """
-            search_query += " * FROM Building "
+            Query to include only Building
+            search_query += """ Building.building_name AS 公寓名称,
+                                Building.op AS OP,
+                                Building.location AS 区域,
+                                Building.address AS 地址,
+                                Building.pet AS 宠物友好,
+                                Building.application_material AS 申请材料,
+                                Building.amenity_image AS 设施图片,
+                                Building.guarantee_policy AS 担保政策,
+                                Building.building_id FROM Building """
+
             st.write("公寓:")
             st.session_state['include_building_only'] = True
             
