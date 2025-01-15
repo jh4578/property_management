@@ -200,6 +200,9 @@ def app():
             final_query += "WHERE " + " AND ".join(search_conditions)
 
         df = execute_read_query(final_query)
+        if include_unit:
+            df['Availability'] = df['Availability'].dt.strftime('%m-%d-%Y')
+            
         st.session_state['search_results'] = df
 
     # Display Search Results
