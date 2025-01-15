@@ -62,18 +62,12 @@ if 'password_correct' in st.session_state and st.session_state['password_correct
     def main():
     
         st.sidebar.title("目录")
-        choice = st.sidebar.selectbox("选择", ["搜索房源", "更新User","添加公寓", "添加单元", "测试"])
+        choice = st.sidebar.selectbox("选择", ["搜索房源","添加公寓"])
         
         if choice == "搜索房源":
             search.app()
         elif choice == "添加公寓":
             insert_build.app()
-        elif choice == "添加单元":
-            insert_unit.app()
-        elif choice == "测试":
-            sql_test.app()
-        elif choice == "更新User":
-            update_user.app()
         
     if __name__ == "__main__":
         main()
