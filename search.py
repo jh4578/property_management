@@ -202,6 +202,7 @@ def app():
         df = execute_read_query(final_query)
         if include_unit:
             df['Availability'] = df['Availability'].dt.strftime('%m-%d-%Y')
+            df['latest_update'] = df['latest_update'].dt.strftime('%m-%d-%Y')
             
         st.session_state['search_results'] = df
 
