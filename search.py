@@ -238,13 +238,6 @@ def app():
                     # st.write(is_building_only,is_building_only,is_subunit_included)
 
                     building_column_name_mapping = {
-                        '公寓名称': 'building_name',
-                        '区域': 'location',
-                        '地址': 'address',
-                        '宠物友好': 'pet',
-                        '申请材料': 'application_material',
-                        '设施图片': 'amenity_image',
-                        '担保政策': 'guarantee_policy',
                         'OP':'op'
                     }
 
