@@ -65,10 +65,10 @@ def app():
             # 第二列的字段
             roomtype_options = ["Any", 'Studio', '1b1b', '2b2b', '2b1b', '3b2b', '3b3b','4b3b']
             roomtype = st.multiselect("户型", options=roomtype_options, default=["Any"])
-            roomtype_subunit = st.multiselect("房型", options=["Any", "All",'bedroom1', 'bedroom2', 'bedroom3', 'living_room'], default=["Any"])
+            # roomtype_subunit = st.multiselect("房型", options=["Any", "All",'bedroom1', 'bedroom2', 'bedroom3', 'living_room'], default=["Any"])
             movein_date = st.date_input("入住时间")
             if_time = st.checkbox('搜索时间',value = False)
-            pet = st.checkbox("宠物友好", value=False)
+            # pet = st.checkbox("宠物友好", value=False)
             washer_dryer = st.checkbox("室内洗烘", value=False)
             on_market = st.checkbox("On Market", value=False)
 
@@ -203,8 +203,9 @@ def app():
 
         df = execute_read_query(final_query)
         if include_unit:
-            df['Availability'] = df['Availability'].dt.strftime('%m-%d-%Y')
-            df['latest_update'] = df['latest_update'].dt.strftime('%m-%d-%Y')
+            df['Availability'] = df['Availability'].apply(lambda x: x.strftime('%m-%d-%Y') if pd.notna(x) else '')
+            df['latest_update'] = df['latest_update'].apply(lambda x: x.strftime('%m-%d-%Y') if pd.notna(x) else '')
+
             
         st.session_state['search_results'] = df
 
