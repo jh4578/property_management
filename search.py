@@ -300,8 +300,8 @@ def app():
                             else:
                                 # Construct and execute UPDATE query for Building
                                 building_update_query = "UPDATE Building SET "
-                                building_update_query += ", ".join([f"{col} = '{updated_df.at[i, col]}'" for col in updated_df.columns])
-                                # building_update_query += ", ".join([f"{building_column_name_mapping[col]} = '{updated_df.at[i, col]}'" for col in updated_df.columns if col in building_column_name_mapping])
+                                # building_update_query += ", ".join([f"{col} = '{updated_df.at[i, col]}'" for col in updated_df.columns])
+                                building_update_query += ", ".join([f"{building_column_name_mapping[col]} = '{updated_df.at[i, col]}'" for col in updated_df.columns if col in building_column_name_mapping])
                                 building_update_query += f" WHERE building_id = {updated_df.at[i, 'building_id']}"
                                 execute_write_query(building_update_query)
                         
