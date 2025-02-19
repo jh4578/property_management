@@ -235,22 +235,16 @@ def app():
                     is_unit_included = st.session_state.get('include_unit', False)
                     is_subunit_included = st.session_state.get('include_subunit', False)
                     # st.write(is_building_only,is_building_only,is_subunit_included)
-                    
+
                     building_column_name_mapping = {
-                        'building_name': 'building_name',
-                        'location': 'location',
-                        'address': 'address',
-                        'building_description': 'building_description',
-                        'building_location_image': 'building_location_image',
-                        'pet': 'pet',
-                        'application_material': 'application_material',
-                        'washer_dryer_image': 'washer_dryer_image',
-                        'amenity_image': 'amenity_image',
-                        'guarantee_policy': 'guarantee_policy',
-                        'source': 'source',
-                        'website': 'website',
-                        'OP':'op',
-                        'movein_range': 'movein_range'
+                        '公寓名称': 'building_name',
+                        '区域': 'location',
+                        '地址': 'address',
+                        '宠物友好': 'pet',
+                        '申请材料': 'application_material',
+                        '设施图片': 'amenity_image',
+                        '担保政策': 'guarantee_policy',
+                        'OP':'op'
                     }
 
                     
