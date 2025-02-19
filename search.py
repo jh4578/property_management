@@ -84,7 +84,8 @@ def app():
 
         include_building = building_name != "All"
         # include_unit = min_price!= 0 or max_price != 0 or washer_dryer == True or on_market == True or 
-        include_subunit = roomtype_subunit != ["Any"]
+        # include_subunit = roomtype_subunit != ["Any"]
+        include_subunit = False
         
         search_query = "SELECT"
         search_conditions = []
