@@ -171,7 +171,8 @@ def app():
                                 Building.pet AS 宠物友好,
                                 Building.application_material AS 申请材料,
                                 Building.amenity_image AS 设施图片,
-                                Building.gurantee_policy AS 担保政策
+                                Building.gurantee_policy AS 担保政策,
+                                Building.building_id
                                 FROM Building """
 
             st.write("公寓:")
