@@ -162,7 +162,7 @@ def app():
             if on_market:
                 search_conditions.append("Unit.on_market = 1")
 
-            if roomtype != 'Any':
+            if roomtype != ['Any']:
                 roomtype_conditions = ["Unit.floorplan LIKE '%{}%'".format(loc) for loc in roomtype]
                 search_conditions.append("({})".format(" OR ".join(roomtype_conditions)))
                     
