@@ -70,6 +70,7 @@ def app():
             if_time = st.checkbox('搜索时间',value = False)
             # pet = st.checkbox("宠物友好", value=False)
             washer_dryer = st.checkbox("室内洗烘", value=False)
+            op = st.checkbox("OP", value=False)
             on_market = st.checkbox("On Market", value=False)
 
         include_unit = st.checkbox('搜索unit',value=False)
@@ -193,6 +194,8 @@ def app():
             search_conditions.append("({})".format(" OR ".join(location_conditions)))
         if washer_dryer:
             search_conditions.append("Unit.washer_dryer = 1")
+        if op:
+            search_conditions.append("Building.op = 1")
         # if pet:
         #     pet_val = 1
         #     search_conditions.append(f"Building.pet = {pet_val}")
