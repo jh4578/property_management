@@ -153,7 +153,7 @@ def app():
                                 Unit.size AS 面积sqft,
                                 Unit.concession AS 优惠政策,
                                 Unit.direction AS 朝向,
-                                Building.location AS 区域,
+                                Unit.model,
                                 Unit.latest_update
                                 FROM Unit """
             join_conditions += "JOIN Building ON Unit.building_id = Building.building_id "
@@ -251,22 +251,21 @@ def app():
 
                     
                     unit_column_name_mapping = {
-                        'unit_number': 'unit_number',
-                        'rent_price': 'rent_price',
-                        'floorplan': 'floorplan',
-                        'floorplan_image': 'floorplan_image',
-                        'size': 'size',
-                        'concession': 'concession',
-                        'direction': 'direction',
-                        'unit_video': 'unit_video',
-                        'unit_description': 'unit_description',
-                        'broker_fee': 'broker_fee',
-                        'available_date': 'available_date',
-                        'washer_dryer': 'washer_dryer',
-                        'on_market':'on_market',
+                        '公寓名称': 'building_name',
+                        '单元号': 'unit_number',
+                        '户型': 'floorplan',
+                        '户型图': 'floorplan_image',
+                        '面积sqft': 'size',
+                        '优惠政策': 'concession',
+                        '朝向': 'direction',
+                        '单元视频': 'unit_video',
+                        '租金': 'rent_price',
+                        'Availability': 'available_date',
+                        '室内洗烘': 'washer_dryer',
+                        'model':'model',
                         
                     }
-
+   
                     sub_unit_column_name_mapping = {
                         '房间': 'room_type',
                         '房间租金': 'sub_rent_price',
