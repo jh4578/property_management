@@ -149,11 +149,11 @@ def app():
                                 Unit.floorplan_image AS 户型图,
                                 Unit.unit_video AS 单元视频,
                                 Unit.available_date AS Availability,
+                                Unit.model,
                                 Unit.washer_dryer AS 室内洗烘,  
                                 Unit.size AS 面积sqft,
                                 Unit.concession AS 优惠政策,
                                 Unit.direction AS 朝向,
-                                Unit.model,
                                 Unit.latest_update,
                                 Unit.unit_id
                                 FROM Unit """
