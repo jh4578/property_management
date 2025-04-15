@@ -154,7 +154,8 @@ def app():
                                 Unit.concession AS 优惠政策,
                                 Unit.direction AS 朝向,
                                 Unit.model,
-                                Unit.latest_update
+                                Unit.latest_update,
+                                Unit.unit_id
                                 FROM Unit """
             join_conditions += "JOIN Building ON Unit.building_id = Building.building_id "
             if movein_date and if_time:
