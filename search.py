@@ -149,6 +149,7 @@ def app():
                                 Unit.floorplan_image AS 户型图,
                                 Unit.unit_video AS 单元视频,
                                 Unit.available_date AS Availability,
+                                Unit.movein_before AS 最晚入住时间,
                                 Unit.model,
                                 Unit.washer_dryer AS 室内洗烘,  
                                 Unit.size AS 面积sqft,
