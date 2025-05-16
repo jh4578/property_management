@@ -212,6 +212,7 @@ def app():
         df = execute_read_query(final_query)
         if include_unit:
             df['Availability'] = df['Availability'].apply(lambda x: x.strftime('%m-%d-%Y') if pd.notna(x) else '')
+            df['最晚入住时间'] = df['最晚入住时间'].apply(lambda x: x.strftime('%m-%d-%Y') if pd.notna(x) else '')
             df['latest_update'] = df['latest_update'].apply(lambda x: x.strftime('%m-%d-%Y') if pd.notna(x) else '')
 
             
